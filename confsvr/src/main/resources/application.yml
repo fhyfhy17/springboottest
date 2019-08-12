@@ -2,9 +2,11 @@ server:
   port: 8888
 spring:
   profiles:
-    active: native
+    active: dev
   cloud:
     config:
       server:
-        native:
-          search-locations: file:///Users/fenghaiyu/workspace\springboottest\confsvr\src\main\resources\config\licensingservice
+        git:
+          #          search-locations: file:///Users/fenghaiyu/workspace\springboottest\confsvr\src\main\resources\config\licensingservice
+          uri: https://github.com/fhyfhy17/config-repo
+          search-paths: licensingservice
