@@ -3,7 +3,7 @@ spring.jpa.database: "POSTGRESQL"
 spring.datasource.platform:  "postgres"
 spring.jpa.show-sql: "true"
 spring.database.driverClassName: "org.postgresql.Driver"
-spring.datasource.url: "jdbc:postgresql://10.0.105.222:54321/postgres"
+spring.datasource.url: "jdbc:postgresql://192.168.1.12:54321/postgres"
 spring.datasource.username: "postgres"
 spring.datasource.password: "password"
 spring.datasource.testWhileIdle: "true"
@@ -12,3 +12,9 @@ spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialec
 redis.server: "redis"
 redis.port: "6379"
 signing.key: "345345fsdfsf5345"
+spring:
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
