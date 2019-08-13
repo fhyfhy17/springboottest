@@ -1,12 +1,11 @@
 server:
-  port: 8001
+  port: 8002
 spring:
   application:
-    name: licensingservice
+    name: organizationservice
   profiles:
     active:
       prod
 #  cloud:
 #    config:
-#      uri: http://localhost:8888
-
+#      enabled: true
