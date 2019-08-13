@@ -7,6 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+/***
+ * 负载均衡查找服务
+ */
 @Component
 public class RestTemplateClient
 {

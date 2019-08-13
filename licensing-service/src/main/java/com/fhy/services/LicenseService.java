@@ -1,6 +1,7 @@
 package com.fhy.services;
 
 import com.fhy.clients.OrganizationDiscoveryClient;
+import com.fhy.clients.OrganizationFeignClient;
 import com.fhy.clients.RestTemplateClient;
 import com.fhy.controller.config.ServiceConfig;
 import com.fhy.model.License;
@@ -26,6 +27,9 @@ public class LicenseService {
     private OrganizationDiscoveryClient organizationDiscoveryClient;
     @Autowired
     private RestTemplateClient restTemplateClient;
+    @Autowired
+	private OrganizationFeignClient organizationFeignClient;
+    
     
     public License getLicense(String organizationId, String licenseId,String clientType) {
         License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
@@ -44,10 +48,10 @@ public class LicenseService {
         Organization organization = null;
         
         switch (clientType) {
-            //case "feign":
-            //    System.out.println("I am using the feign client");
-            //    organization = organizationFeignClient.getOrganization(organizationId);
-            //    break;
+            case "feign":
+                System.out.println("I am using the feign client");
+                organization = organizationFeignClient.getOrganization(organizationId);
+                break;
             case "rest":
                 System.out.println("I am using the rest client");
                 organization = restTemplateClient.getOrganization(organizationId);

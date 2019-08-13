@@ -12,28 +12,29 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+/**
+ * 普通手动查找服务
+ */
 @Component
-public class OrganizationDiscoveryClient {
-
-    @Autowired
-    private DiscoveryClient discoveryClient;
-
-    public Organization getOrganization(String organizationId) {
-        RestTemplate restTemplate = new RestTemplate();
-        List<ServiceInstance> instances = discoveryClient.getInstances("organizationservice");
+public class OrganizationDiscoveryClient
+{
 	
+	@Autowired
+	private DiscoveryClient discoveryClient;
+	
+	public Organization getOrganization(String organizationId)
+	{
+		RestTemplate restTemplate=new RestTemplate();
+		List<ServiceInstance> instances=discoveryClient.getInstances("organizationservice");
+		
 		if(instances.size()==0)
 		{
 			return null;
 		}
-        String serviceUri = String.format("%s/v1/organizations/%s",instances.get(0).getUri().toString(), organizationId);
-    
-        ResponseEntity< Organization > restExchange =
-                restTemplate.exchange(
-                        serviceUri,
-                        HttpMethod.GET,
-                        null, Organization.class, organizationId);
-
-        return restExchange.getBody();
-    }
+		String serviceUri=String.format("%s/v1/organizations/%s",instances.get(0).getUri().toString(),organizationId);
+		
+		ResponseEntity<Organization> restExchange=restTemplate.exchange(serviceUri,HttpMethod.GET,null,Organization.class,organizationId);
+		
+		return restExchange.getBody();
+	}
 }
