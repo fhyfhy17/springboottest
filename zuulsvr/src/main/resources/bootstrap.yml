@@ -1,0 +1,10 @@
+server:
+  port: 5555
+spring:
+  application:
+    name: zuulsvr
+management:
+  endpoints:
+    web:
+      exposure:
+        include: routes,filters

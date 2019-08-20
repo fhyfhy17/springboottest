@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "v1/organizations/{organizationId}/licenses")
 public class LicenseServiceController {
@@ -31,6 +33,10 @@ public class LicenseServiceController {
 
         return licenseService.getLicense(organizationId, licenseId);
 
+    }
+    @RequestMapping(value="/" ,method=RequestMethod.GET)
+    public List<License> getLicenses(@PathVariable("organizationId") String organizationId){
+        return licenseService.getLicensesByOrg(organizationId);
     }
 
     @RequestMapping(value = "{licenseId}", method = RequestMethod.PUT)

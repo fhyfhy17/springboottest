@@ -8,6 +8,7 @@
         <module>confsvr</module>
         <module>eureka</module>
         <module>organization-service</module>
+        <module>zuulsvr</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
