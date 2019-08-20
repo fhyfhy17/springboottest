@@ -6,3 +6,9 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+zuul:
+  ignored-services: '*'
+  prefix: /api
+  routes:
+    organizationservice: /organ/**
+    licensingservice: /licen/**
