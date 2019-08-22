@@ -18,3 +18,13 @@ spring:
       hibernate:
         temp:
           use_jdbc_metadata_defaults: false
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination:  orgChangeTopic
+          content-type: application/json
+      kafka:
+        binder:
+          zkNodes: 10.0.105.222
+          brokers: 10.0.105.222
