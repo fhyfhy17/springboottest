@@ -42,6 +42,6 @@ public class LicensingServiceApplication
 	
 	@StreamListener(Sink.INPUT)
 	public void loggerSink(OrganizationChangeModel orgChange) {
-		log.info("Received an event for organization id {}", orgChange.getOrganizationId());
+		log.info("收到一个事件 for organization id = {} action = {} 关联ID = {}", orgChange.getOrganizationId(),orgChange.getAction(),orgChange.getCorrelationId());
 	}
 }
