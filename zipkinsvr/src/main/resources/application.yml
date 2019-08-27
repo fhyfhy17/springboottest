@@ -1,5 +1,4 @@
 server:
-#  port: 9411
   compression:
     enabled: true
 management:
@@ -7,11 +6,9 @@ management:
     web:
       server:
         auto-time-requests: false
-spring.main.web-application-type: none
-#spring:
-#  main:
-#    web-application-type: none
-server.port: -1
+spring:
+  main:
+    web-application-type: none
 armeria:
   ports:
     - port: ${armeria.port:9411}
