@@ -1,0 +1,22 @@
+server:
+#  port: 9411
+  compression:
+    enabled: true
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+spring.main.web-application-type: none
+#spring:
+#  main:
+#    web-application-type: none
+server.port: -1
+armeria:
+  ports:
+    - port: ${armeria.port:9411}
+      protocol: HTTP
+  graceful-shutdown-quiet-period-millis: 100
+  graceful-shutdown-timeout-millis: 200
+
+

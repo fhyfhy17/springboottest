@@ -9,6 +9,7 @@
         <module>eureka</module>
         <module>organization-service</module>
         <module>zuulsvr</module>
+        <module>zipkinsvr</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

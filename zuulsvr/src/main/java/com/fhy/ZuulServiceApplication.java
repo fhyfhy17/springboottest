@@ -1,5 +1,7 @@
 package com.fhy;
 
+import brave.sampler.DeclarativeSampler;
+import brave.sampler.Sampler;
 import com.fhy.utils.UserContextInterceptor;
 import com.google.common.collect.Collections2;
 import org.springframework.boot.SpringApplication;
@@ -33,5 +35,10 @@ public class ZuulServiceApplication
 		RestTemplate template = new RestTemplate();
 		template.getInterceptors().add(new UserContextInterceptor());
 		return template;
+	}
+	
+	@Bean
+	public Sampler defaultSampler(){
+		return Sampler.ALWAYS_SAMPLE;
 	}
 }

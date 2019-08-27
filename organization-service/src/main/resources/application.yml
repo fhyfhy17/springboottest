@@ -18,3 +18,5 @@ spring:
         binder:
           zkNodes: 10.0.105.222
           brokers: 10.0.105.222
+  zipkin:
+    baseUrl:  localhost:9411

@@ -1,5 +1,6 @@
 package com.fhy;
 
+import brave.sampler.Sampler;
 import com.fhy.utils.UserContextInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,5 +32,11 @@ public class OrganizationApplication
         RestTemplate template=new RestTemplate();
         template.getInterceptors().add(new UserContextInterceptor());
         return new RestTemplate();
+    }
+    
+    
+    @Bean
+    public Sampler defaultSampler(){
+        return Sampler.ALWAYS_SAMPLE;
     }
 }

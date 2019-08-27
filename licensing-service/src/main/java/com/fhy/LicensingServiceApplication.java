@@ -1,5 +1,6 @@
 package com.fhy;
 
+import brave.sampler.Sampler;
 import com.fhy.events.model.OrganizationChangeModel;
 import com.fhy.utils.UserContextInterceptor;
 import lombok.extern.slf4j.Slf4j;
@@ -43,5 +44,10 @@ public class LicensingServiceApplication
 	@StreamListener(Sink.INPUT)
 	public void loggerSink(OrganizationChangeModel orgChange) {
 		log.info("收到一个事件 for organization id = {} action = {} 关联ID = {}", orgChange.getOrganizationId(),orgChange.getAction(),orgChange.getCorrelationId());
+	}
+	
+	@Bean
+	public Sampler defaultSampler(){
+		return Sampler.ALWAYS_SAMPLE;
 	}
 }

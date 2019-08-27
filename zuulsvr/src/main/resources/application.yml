@@ -12,3 +12,7 @@ zuul:
   routes:
     organizationservice: /organ/**
     licensingservice: /licen/**
+
+spring:
+  zipkin:
+    baseUrl:  http://localhost:9411
